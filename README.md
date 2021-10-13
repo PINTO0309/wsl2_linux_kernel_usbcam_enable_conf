@@ -6,7 +6,7 @@ Configuration file to build the kernel to access the USB camera connected to the
 - WSL2
 - Ubuntu 20.04
 
-## 1. Usage
+## 2. Usage
 On WSL2.
 ```bash
 $ uname -r -v
@@ -42,6 +42,6 @@ https://github.com/microsoft/WSL2-Linux-Kernel.git \
 ${TAGVERNUM}-microsoft-standard && \
 cd ${TAGVERNUM}-microsoft-standard
 
-$ sudo cp Microsoft/config-wsl ./.config && \
-sudo make clean && sudo make menuconfig
+$ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config && \
+sudo make clean
 ```
