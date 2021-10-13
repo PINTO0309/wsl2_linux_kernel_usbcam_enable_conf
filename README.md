@@ -64,3 +64,12 @@ $ cat << 'EOT' > /mnt/c/Users/<windows username>/.wslconfig
 kernel=C:\\Users\\<windows username>\\vmlinux
 EOT
 ```
+On Windows Terminal.
+```shell
+C:\> wsl --shutdown
+```
+On WSL2.
+```bash
+$ uname -r -v
+5.10.60.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
+```
