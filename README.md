@@ -24,7 +24,7 @@ Kernel version: 5.10.60.1
 C:\> wsl --shutdown
 ```
 On WSL2.
-```
+```bash
 $ uname -r -v
 5.10.60.1-microsoft-standard-WSL2 #1 SMP ...
 
@@ -44,4 +44,22 @@ cd ${TAGVERNUM}-microsoft-standard
 
 $ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config && \
 sudo make clean
+
+$ sudo make -j$(nproc) && \
+sudo make modules_install -j$(nproc) && \
+sudo make install -j$(nproc)
+
+$ cd tools/usb/usbip/
+$ sudo ./autogen.sh && sudo ./configure
+$ sudo sed 's/-Werror//g' -i Makefile && \
+sudo sed 's/-Werror//g' -i src/Makefile && \
+sudo sed 's/-Werror//g' -i libsrc/Makefile
+$ sudo make install -j$(nproc)
+$ sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
+$ sudo rm /mnt/c/Users/<windows username>/vmlinux
+$ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/<windows username>/
+$ cat << 'EOT' > /mnt/c/Users/<windows username>/.wslconfig
+[wsl2]
+kernel=C:\\Users\\<windows username>\\vmlinux
+EOT
 ```
