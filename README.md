@@ -4,6 +4,7 @@ Configuration file to build the kernel to access the USB camera connected to the
 
 ## 1. Environment
 - Windows 11 (OS build: 22000.194+)
+- Windows 10 (OS build: 19043.1237+)
 - WSL2
 - Ubuntu 20.04
 - https://github.com/microsoft/WSL2-Linux-Kernel
