@@ -68,7 +68,7 @@ On Windows Terminal.
 ```shell
 C:\> wsl --shutdown
 ```
-On WSL2.
+On WSL2. If the built kernel has been loaded successfully, you will see **`+`** at the end of the kernel name. **`#n`** is the number of times the kernel was built.
 ```bash
 $ uname -r -v
 5.10.60.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
