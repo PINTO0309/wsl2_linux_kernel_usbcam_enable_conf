@@ -162,7 +162,9 @@ Streaming Parameters Video Capture:
          backlight_compensation 0x0098091c (int)    : min=0 max=3 step=1 default=2 value=2
 ```
 Check the WIDTH and HEIGHT of the standard resolution displayed, and correct the input resolution listed in **`usbcam_test.py`**.
+
 e.g.
+
 From:
 ```python
 frame = cv2.resize(frame, (640, 480))
