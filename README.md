@@ -37,6 +37,7 @@ python3-pip cmake git iputils-ping net-tools
 $ cd /usr/src
 $ TAGVERNUM=5.10.60.1 && \
 TAGVER=linux-msft-wsl-${TAGVERNUM}
+
 $ sudo git clone -b ${TAGVER} \
 https://github.com/microsoft/WSL2-Linux-Kernel.git \
 ${TAGVERNUM}-microsoft-standard && \
