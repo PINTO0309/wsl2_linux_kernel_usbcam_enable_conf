@@ -76,3 +76,5 @@ On WSL2. If the built kernel has been loaded successfully, you will see **`+`** 
 $ uname -r -v
 5.10.60.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
 ```
+## 3. Note
+Copying the Linux kernel built on Windows 11 to Windows 10 seems to recognize the USB camera normally, but if the build version of Windows 10 is old or incompatible with the USB camera, it may not work due to a communication timeout. In this case, try replacing multiple USB cameras or update the build version of Windows.
