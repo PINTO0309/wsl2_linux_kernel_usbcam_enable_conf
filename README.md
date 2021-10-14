@@ -181,11 +181,22 @@ $ sudo chmod 777 /dev/video0 && python3 ${HOME}/usbcam_test.py
 
 - Try2. It may not work well with UVC-compatible USB cameras depending on their compatibility. Try replacing several USB cameras. The following cameras were recognized successfully. I have tried four different USB cameras and only one was successful.
 
-https://www.amazon.co.jp/ELP-USB%E3%82%AB%E3%83%A1%E3%83%A9%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E3%83%95%E3%83%AA%E3%83%BC%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%96-VR%E3%82%AB%E3%83%A1%E3%83%A9%EF%BC%88%E3%83%A2%E3%83%87%E3%83%AB%EF%BC%9AELP-USB8MP02G-L180-JP%EF%BC%89/dp/B08FDJW3HS
+  - [ELP 8 Megapixel USB Camera Module High Definition 2448P Webcam Wide Angle 180 Degree Fisheye Camera Module Full HD High Speed 2448P 15FPS Camera HD](https://www.amazon.co.jp/ELP-USB%E3%82%AB%E3%83%A1%E3%83%A9%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB-%E3%83%95%E3%83%AA%E3%83%BC%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E3%82%A6%E3%82%A7%E3%83%96-VR%E3%82%AB%E3%83%A1%E3%83%A9%EF%BC%88%E3%83%A2%E3%83%87%E3%83%AB%EF%BC%9AELP-USB8MP02G-L180-JP%EF%BC%89/dp/B08FDJW3HS?language=en_US&th=1)
+  - [PAPALOOK PA452 Webcam 1080P 30 FPS 2 Million 360 Degree Rotatable Illumination Stereo Microphone Noise Cancelling Function Unique Appearance Design](https://www.amazon.co.jp/PAPALOOK-PA452-%E3%82%A6%E3%82%A7%E3%83%96%E3%82%AB%E3%83%A1%E3%83%A9-360%E5%BA%A6%E5%9B%9E%E8%BB%A2%E5%8F%AF%E8%83%BD-%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BB%98%E3%81%8D/dp/B01LXHPJ5Z/ref=sr_1_4?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=PA452+pro&qid=1634110776&s=computers&sr=1-4)
 
-https://www.amazon.co.jp/PAPALOOK-PA452-%E3%82%A6%E3%82%A7%E3%83%96%E3%82%AB%E3%83%A1%E3%83%A9-360%E5%BA%A6%E5%9B%9E%E8%BB%A2%E5%8F%AF%E8%83%BD-%E3%82%A4%E3%83%AB%E3%83%9F%E3%83%8D%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E4%BB%98%E3%81%8D/dp/B01LXHPJ5Z/ref=sr_1_4?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=PA452+pro&qid=1634110776&s=computers&sr=1-4
-
-- Built-in camera for Thinkpad laptops
+  - [OAK-D-Lite](https://www.kickstarter.com/projects/opencv/opencv-ai-kit-oak-depth-camera-4k-cv-edge-object-detection?lang=en)
+    - https://github.com/luxonis/depthai
+      ```bash
+      # Disable the Windows Defender Firewall
+      $ python3 install_requirements.py
+      $ python3 -m pip install blobconverter --upgrade
+      $ sudo echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | \
+      sudo tee /etc/udev/rules.d/80-movidius.rules
+      $ service udev restart
+      $ sudo udevadm control --reload-rules && sudo udevadm trigger
+      $ python3 depthai_demo.py
+      ```
+  - Built-in camera for Thinkpad laptops
 - Confirmed to work with Windows 11 Home (21H2) OS build: 22000.194
 - Confirmed to work with Windows 10 Pro (21H1) OS build: 19043.1237
 
