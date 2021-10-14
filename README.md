@@ -144,23 +144,36 @@ Crop Capability Video Capture:
 	Pixel Aspect: 1/1
 Selection Video Capture: crop_default, Left 0, Top 0, Width 1280, Height 720, Flags: 
 Selection Video Capture: crop_bounds, Left 0, Top 0, Width 1280, Height 720, Flags: 
-Streaming Parameters Video Capture:
-	Capabilities     : timeperframe
-	Frames per second: 30.000 (30/1)
-	Read buffers     : 0
-                     brightness 0x00980900 (int)    : min=-64 max=64 step=1 default=0 value=0
-                       contrast 0x00980901 (int)    : min=0 max=95 step=1 default=0 value=0
-                     saturation 0x00980902 (int)    : min=0 max=100 step=1 default=30 value=30
-                            hue 0x00980903 (int)    : min=-2000 max=2000 step=100 default=0 value=0
- white_balance_temperature_auto 0x0098090c (bool)   : default=1 value=1
-                          gamma 0x00980910 (int)    : min=100 max=300 step=1 default=100 value=100
-           power_line_frequency 0x00980918 (menu)   : min=0 max=2 default=1 value=1
-				0: Disabled
-				1: 50 Hz
-				2: 60 Hz
-      white_balance_temperature 0x0098091a (int)    : min=2800 max=6500 step=1 default=4600 value=4600 flags=inactive
-                      sharpness 0x0098091b (int)    : min=1 max=7 step=1 default=1 value=1
-         backlight_compensation 0x0098091c (int)    : min=0 max=3 step=1 default=2 value=2
+
+
+$ sudo apt install v4l-utils && \
+sudo chmod 777 /dev/video2 && \
+v4l2-ctl -d /dev/video2 --list-formats-ext
+
+ioctl: VIDIOC_ENUM_FMT
+        Type: Video Capture
+
+        [0]: 'GREY' (8-bit Greyscale)
+                Size: Discrete 256x144
+                        Interval: Discrete 0.003s (300.000 fps)
+                        Interval: Discrete 0.011s (90.000 fps)
+                Size: Discrete 424x240
+                        Interval: Discrete 0.011s (90.000 fps)
+                        Interval: Discrete 0.017s (60.000 fps)
+                        Interval: Discrete 0.033s (30.000 fps)
+                        Interval: Discrete 0.067s (15.000 fps)
+                        Interval: Discrete 0.167s (6.000 fps)
+    :
+                Size: Discrete 1280x720
+                        Interval: Discrete 0.033s (30.000 fps)
+                        Interval: Discrete 0.067s (15.000 fps)
+                        Interval: Discrete 0.167s (6.000 fps)
+        [2]: 'GREY' (8-bit Greyscale)
+                Size: Discrete 256x144
+                        Interval: Discrete 0.003s (300.000 fps)
+                        Interval: Discrete 0.011s (90.000 fps)
+                Size: Discrete 424x240
+                        Interval: Discrete 0.011s (90.000 fps)
 ```
 Check the WIDTH and HEIGHT of the standard resolution displayed, and correct the input resolution listed in **`usbcam_test.py`**.
 
