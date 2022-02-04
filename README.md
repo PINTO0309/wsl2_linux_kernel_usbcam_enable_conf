@@ -41,7 +41,7 @@ $ cd /usr/src
 $ TAGVERNUM=5.10.60.1 && \
 TAGVER=linux-msft-wsl-${TAGVERNUM}
 
-$ sudo git clone -b ${TAGVER} \
+$ sudo git clone --depth 1 -b ${TAGVER} \
 https://github.com/microsoft/WSL2-Linux-Kernel.git \
 ${TAGVERNUM}-microsoft-standard && \
 cd ${TAGVERNUM}-microsoft-standard
