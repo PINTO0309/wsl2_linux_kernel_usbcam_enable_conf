@@ -27,8 +27,7 @@ Kernel version: 5.10.60.1
 
 C:\> wsl --shutdown
 ```
-On WSL2.
-The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC.
+On WSL2. The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC. There are two corrections.
 ```bash
 $ uname -r -v
 5.10.60.1-microsoft-standard-WSL2 #1 SMP ...
