@@ -28,6 +28,7 @@ Kernel version: 5.10.60.1
 C:\> wsl --shutdown
 ```
 On WSL2.
+The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC.
 ```bash
 $ uname -r -v
 5.10.60.1-microsoft-standard-WSL2 #1 SMP ...
@@ -40,7 +41,8 @@ python3-pip cmake git iputils-ping net-tools
 
 $ cd /usr/src
 $ TAGVERNUM=5.10.60.1 && \
-TAGVER=linux-msft-wsl-${TAGVERNUM}
+TAGVER=linux-msft-wsl-${TAGVERNUM} && \
+WINUSERNAME=<windows username>
 
 $ sudo git clone --depth 1 -b ${TAGVER} \
 https://github.com/microsoft/WSL2-Linux-Kernel.git \
@@ -62,9 +64,9 @@ sudo sed 's/-Werror//g' -i src/Makefile && \
 sudo sed 's/-Werror//g' -i libsrc/Makefile
 $ sudo make install -j$(nproc)
 $ sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
-$ sudo rm /mnt/c/Users/<windows username>/vmlinux
-$ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/<windows username>/
-$ cat << 'EOT' > /mnt/c/Users/<windows username>/.wslconfig
+$ sudo rm /mnt/c/Users/${WINUSERNAME}/vmlinux
+$ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSERNAME}/
+$ cat << 'EOT' > /mnt/c/Users/${WINUSERNAME}/.wslconfig
 [wsl2]
 kernel=C:\\Users\\<windows username>\\vmlinux
 EOT
