@@ -209,6 +209,7 @@ $ sudo chmod 777 /dev/video0 && python3 ${HOME}/usbcam_test.py
       ```
   - Built-in camera for Thinkpad laptops
   - RealSense D435
+    ![image](https://user-images.githubusercontent.com/33194443/152624363-ee4e7b47-fa3d-415f-b860-eecd5bc30275.png)
 - Confirmed to work with Windows 11 Home (21H2) OS build: 22000.194
 - Confirmed to work with Windows 10 Pro (21H1) OS build: 19043.1237
 
