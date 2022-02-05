@@ -213,6 +213,8 @@ $ sudo chmod 777 /dev/video0 && python3 ${HOME}/usbcam_test.py
   - Built-in camera for Thinkpad laptops
   - RealSense D435
     ![image](https://user-images.githubusercontent.com/33194443/152624363-ee4e7b47-fa3d-415f-b860-eecd5bc30275.png)
+  - Elecom WEBCAM-102BK Webcam Conference Camera
+    https://www.amazon.co.jp/gp/product/B08BHWR8ZR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1&language=ja_JP
 - Confirmed to work with Windows 11 Home (21H2) OS build: 22000.194
 - Confirmed to work with Windows 11 Pro (21H2) OS build: 22000.469
 - Confirmed to work with Windows 10 Pro (21H1) OS build: 19043.1237
