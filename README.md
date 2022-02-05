@@ -1,6 +1,6 @@
 # wsl2_linux_kernel_usbcam_enable_conf
 Configuration file to build the kernel to access the USB camera connected to the host PC using USBIP from inside the WSL2.
-[Windows 11 + WSL2 + USB Camera + Serial](https://zenn.dev/pinto0309/articles/0723ae46501beb)
+[Windows 11 + WSL2 + USB Camera + Serial](https://zenn.dev/pinto0309/articles/7c7ce81bea8b6c)
 
 ## 1. Environment
 - Windows 11 (OS build: 22000.194+)
@@ -208,6 +208,7 @@ $ sudo chmod 777 /dev/video0 && python3 ${HOME}/usbcam_test.py
       $ python3 depthai_demo.py
       ```
   - Built-in camera for Thinkpad laptops
+  - RealSense D435
 - Confirmed to work with Windows 11 Home (21H2) OS build: 22000.194
 - Confirmed to work with Windows 10 Pro (21H1) OS build: 19043.1237
 
