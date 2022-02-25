@@ -67,14 +67,14 @@ $ sudo rm /mnt/c/Users/${WINUSERNAME}/vmlinux
 $ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSERNAME}/
 ```
 ![w3vld](https://user-images.githubusercontent.com/33194443/155730584-5bbf6a8a-3bf5-44dc-b009-8f8b703d4f5a.png)
+![49p0d](https://user-images.githubusercontent.com/33194443/155734242-a03fceaa-687a-42ec-b130-d6cd82dbf935.png)
 ```
 $ cat << 'EOT' > /mnt/c/Users/${WINUSERNAME}/.wslconfig
 [wsl2]
 kernel=C:\\Users\\<windows username>\\vmlinux
 EOT
 ```
-![fyh68](https://user-images.githubusercontent.com/33194443/155730997-cca7d47b-df10-45d3-a70e-b2267a480504.png)
-
+![fyh68](https://user-images.githubusercontent.com/33194443/155730997-cca7d47b-df10-45d3-a70e-b2267a480504.png)  
 On Windows Terminal.
 ```shell
 C:\> wsl --shutdown
