@@ -196,7 +196,7 @@ frame = cv2.resize(frame, (1280, 720))
 ```
 Run it again.
 ```bash
-$ sudo chmod 777 /dev/video && python3 ${HOME}/usbcam_test.py
+$ sudo chmod 777 /dev/video* && python3 ${HOME}/usbcam_test.py
 ```
 
 - Try2. It may not work well with UVC-compatible USB cameras depending on their compatibility. Try replacing several USB cameras. The following cameras were recognized successfully. I have tried four different USB cameras and only one was successful.
