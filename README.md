@@ -11,6 +11,7 @@ Configuration file to build the kernel to access the USB camera connected to the
 - https://github.com/microsoft/WSL2-Linux-Kernel
 
 ## 2. Usage
+![yth06](https://user-images.githubusercontent.com/33194443/156264003-009b7508-c61e-4cda-8c6f-bcd3840b991f.png)  
 On WSL2.
 ```bash
 $ uname -r -v
