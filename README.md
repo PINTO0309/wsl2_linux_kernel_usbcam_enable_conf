@@ -68,8 +68,6 @@ $ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSE
 $ cat << 'EOT' > /mnt/c/Users/${WINUSERNAME}/.wslconfig
 [wsl2]
 kernel=C:\\Users\\<windows username>\\vmlinux
-[boot]
-command="sudo service udev start"
 EOT
 ```
 ![fyh68](https://user-images.githubusercontent.com/33194443/155730997-cca7d47b-df10-45d3-a70e-b2267a480504.png)  
