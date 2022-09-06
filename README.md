@@ -38,7 +38,7 @@ $ sudo apt update && sudo apt upgrade -y
 $ sudo apt install -y build-essential flex bison \
 libgtk2.0-dev libelf-dev libncurses-dev autoconf \
 libudev-dev libtool zip unzip v4l-utils libssl-dev \
-python3-pip cmake git iputils-ping net-tools
+python3-pip cmake git iputils-ping net-tools dwarves
 
 $ cd /usr/src
 $ TAGVERNUM=5.10.102.1 && \
