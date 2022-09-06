@@ -58,13 +58,6 @@ $ sudo make -j$(nproc) KCONFIG_CONFIG=.config && \
 sudo make modules_install -j$(nproc) && \
 sudo make install -j$(nproc)
 
-$ cd tools/usb/usbip/
-$ sudo ./autogen.sh && sudo ./configure
-$ sudo sed 's/-Werror//g' -i Makefile && \
-sudo sed 's/-Werror//g' -i src/Makefile && \
-sudo sed 's/-Werror//g' -i libsrc/Makefile
-$ sudo make install -j$(nproc)
-$ sudo cp libsrc/.libs/libusbip.so.0 /lib/libusbip.so.0
 $ sudo rm /mnt/c/Users/${WINUSERNAME}/vmlinux
 $ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSERNAME}/
 ```
