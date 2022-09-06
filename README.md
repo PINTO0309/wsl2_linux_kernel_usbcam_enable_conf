@@ -1,6 +1,6 @@
 # wsl2_linux_kernel_usbcam_enable_conf
 Configuration file to build the kernel to access the USB camera connected to the host PC using USBIP from inside the WSL2.
-[Windows 11 + WSL2 + USB Camera + Serial](https://zenn.dev/pinto0309/articles/7c7ce81bea8b6c)
+[Windows 11 + WSL2 + USB Camera + Serial](https://zenn.dev/pinto0309/articles/e1432253d29e30)
 
 ## 1. Environment
 - Windows 11 (OS build: 22000.194)
