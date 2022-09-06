@@ -16,7 +16,7 @@ Configuration file to build the kernel to access the USB camera connected to the
 On WSL2.
 ```bash
 $ uname -r -v
-5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021
+5.10.102.1-microsoft-standard-WSL2 #1 SMP Wed Mar 2 00:30:59 UTC 2022
 ```
 On Windows Terminal.
 ```shell
