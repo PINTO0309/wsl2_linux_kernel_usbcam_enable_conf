@@ -84,7 +84,7 @@ C:\> wsl --shutdown
 On WSL2. If the built kernel has been loaded successfully, you will see **`+`** at the end of the kernel name. **`#n`** is the number of times the kernel was built.
 ```bash
 $ uname -r -v
-5.10.102.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
+5.10.102.1-microsoft-standard-WSL2+ #2 SMP Tue Sep 6 16:36:58 JST 2022
 ```
 ## 3. Note
 If you receive the following error, please follow the additional steps: USB bandwidth issues may cause the information exchange with the camera to time out.
