@@ -32,7 +32,7 @@ C:\> wsl --shutdown
 On WSL2. The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC. There are two corrections.
 ```bash
 $ uname -r -v
-5.10.60.1-microsoft-standard-WSL2 #1 SMP ...
+5.10.102.1-microsoft-standard-WSL2 #1 SMP ...
 
 $ sudo apt update && sudo apt upgrade -y
 $ sudo apt install -y build-essential flex bison \
@@ -41,7 +41,7 @@ libudev-dev libtool zip unzip v4l-utils libssl-dev \
 python3-pip cmake git iputils-ping net-tools
 
 $ cd /usr/src
-$ TAGVERNUM=5.10.60.1 && \
+$ TAGVERNUM=5.10.102.1 && \
 TAGVER=linux-msft-wsl-${TAGVERNUM} && \
 WINUSERNAME=<windows username>
 
@@ -84,7 +84,7 @@ C:\> wsl --shutdown
 On WSL2. If the built kernel has been loaded successfully, you will see **`+`** at the end of the kernel name. **`#n`** is the number of times the kernel was built.
 ```bash
 $ uname -r -v
-5.10.60.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
+5.10.102.1-microsoft-standard-WSL2+ #1 SMP Tue Oct 12 12:05:07 JST 2021
 ```
 ## 3. Note
 If you receive the following error, please follow the additional steps: USB bandwidth issues may cause the information exchange with the camera to time out.
