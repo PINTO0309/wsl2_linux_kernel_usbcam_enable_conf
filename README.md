@@ -3,8 +3,9 @@ Configuration file to build the kernel to access the USB camera connected to the
 [Windows 11 + WSL2 + USB Camera + Serial](https://zenn.dev/pinto0309/articles/7c7ce81bea8b6c)
 
 ## 1. Environment
-- Windows 11 (OS build: 22000.194+)
-- Windows 11 (OS build: 22000.469+)
+- Windows 11 (OS build: 22000.194)
+- Windows 11 (OS build: 22000.469)
+- Windows 11 (OS build: 22000.918)
 - Windows 10 (OS build: 19043.1237+)
 - WSL2
 - **`[Mandatory] WSL2 Ubuntu 20.04`**
