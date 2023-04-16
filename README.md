@@ -7,8 +7,9 @@ Configuration file to build the kernel to access the USB camera connected to the
 - Windows 11 (OS build: 22000.469)
 - Windows 11 (OS build: 22000.918)
 - Windows 10 (OS build: 19043.1237+)
+- Windows 10 (OS build: 19045.2846)
 - WSL2
-- **`[Mandatory] WSL2 Ubuntu 20.04`**
+- **`[Mandatory] WSL2 Ubuntu 20.04 or 22.04`**
 - https://github.com/microsoft/WSL2-Linux-Kernel
 
 ## 2. Usage
@@ -16,7 +17,7 @@ Configuration file to build the kernel to access the USB camera connected to the
 On WSL2.
 ```bash
 $ uname -r -v
-5.10.102.1-microsoft-standard-WSL2 #1 SMP Wed Mar 2 00:30:59 UTC 2022
+5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023
 ```
 On Windows Terminal.
 ```shell
@@ -29,35 +30,44 @@ Kernel version: 5.10.102.1
 
 C:\> wsl --shutdown
 ```
+
+```shell
+# Ubuntu 20.04
+C:\> wsl --install -d Ubuntu-20.04
+
+# Ubuntu 22.04
+C:\> wsl --install -d Ubuntu-22.04
+```
+
+
 On WSL2. The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC. There are two corrections.
 ```bash
-$ uname -r -v
-5.10.102.1-microsoft-standard-WSL2 #1 SMP ...
+~$ uname -r -v
+5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023
 
 $ sudo apt update && sudo apt upgrade -y
 $ sudo apt install -y build-essential flex bison \
-libgtk2.0-dev libelf-dev libncurses-dev autoconf \
-libudev-dev libtool zip unzip v4l-utils libssl-dev \
-python3-pip cmake git iputils-ping net-tools dwarves \
-guvcview python-is-python3
+    libgtk-3-dev libelf-dev libncurses-dev autoconf \
+    libudev-dev libtool zip unzip v4l-utils libssl-dev \
+    python3-pip cmake git iputils-ping net-tools dwarves \
+    guvcview python-is-python3 bc
 
 $ cd /usr/src
-$ TAGVERNUM=5.10.102.1 && \
-TAGVER=linux-msft-wsl-${TAGVERNUM} && \
-WINUSERNAME=<windows username>
-
+$ TAGVERNUM=5.15.90.1 && \
+    TAGVER=linux-msft-wsl-${TAGVERNUM} && \
+    WINUSERNAME=<windows username>
 $ sudo git clone --depth 1 -b ${TAGVER} \
-https://github.com/microsoft/WSL2-Linux-Kernel.git \
-${TAGVERNUM}-microsoft-standard && \
-cd ${TAGVERNUM}-microsoft-standard
+    https://github.com/microsoft/WSL2-Linux-Kernel.git \
+    ${TAGVERNUM}-microsoft-standard && \
+    cd ${TAGVERNUM}-microsoft-standard
 
-$ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config && \
+$ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config-${WSL_DISTRO_NAME} && \
 sudo chmod 777 .config && \
 sudo make clean
 
 $ sudo make -j$(nproc) KCONFIG_CONFIG=.config && \
-sudo make modules_install -j$(nproc) && \
-sudo make install -j$(nproc)
+    sudo make modules_install -j$(nproc) && \
+    sudo make install -j$(nproc)
 
 $ sudo rm /mnt/c/Users/${WINUSERNAME}/vmlinux
 $ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSERNAME}/
@@ -78,7 +88,7 @@ C:\> wsl --shutdown
 On WSL2. If the built kernel has been loaded successfully, you will see **`+`** at the end of the kernel name. **`#n`** is the number of times the kernel was built.
 ```bash
 $ uname -r -v
-5.10.102.1-microsoft-standard-WSL2+ #2 SMP Tue Sep 6 16:36:58 JST 2022
+5.15.90.1-microsoft-standard-WSL2+ #1 SMP Sun Apr 16 18:14:34 JST 2023
 ```
 ## 3. Note
 If you receive the following error, please follow the additional steps: USB bandwidth issues may cause the information exchange with the camera to time out.
@@ -213,6 +223,8 @@ $ sudo chmod 777 /dev/video* && python ${HOME}/usbcam_test.py
   - Built-in camera for Thinkpad laptops
   - RealSense D435
     ![image](https://user-images.githubusercontent.com/33194443/152624363-ee4e7b47-fa3d-415f-b860-eecd5bc30275.png)
+  - RealSense L515
+	![image](https://user-images.githubusercontent.com/17954673/232305361-adcd7545-7ac6-490b-ba9c-d7a414804c5c.png)
   - Elecom WEBCAM-102BK Webcam Conference Camera
     https://www.amazon.co.jp/gp/product/B08BHWR8ZR/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1&language=ja_JP
 - Confirmed to work with Windows 11 Home (21H2) OS build: 22000.194
