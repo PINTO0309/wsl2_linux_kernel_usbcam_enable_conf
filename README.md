@@ -94,8 +94,10 @@ $ uname -r -v
 ## 3. Note
 ### 3-1. WSL Linux kernel configuration changes
 From here, select the `TAG` for the target kernel version.
+
 https://github.com/microsoft/WSL2-Linux-Kernel/tags
 
+On WSL2.
 ```
 $ cd /usr/src
 $ TAGVERNUM=x.x.x.x
