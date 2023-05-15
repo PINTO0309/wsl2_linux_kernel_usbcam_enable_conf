@@ -113,7 +113,8 @@ $ sudo cp /proc/config.gz config.gz \
 
 $ sudo make menuconfig
 
-# After completing all necessary configurations, "save" will save the modified `.config` file.
+# After completing all necessary configurations,
+# "save" will save the modified `.config` file.
 ```
 ### 3-2. Troubleshooting
 If you receive the following error, please follow the additional steps: USB bandwidth issues may cause the information exchange with the camera to time out.
