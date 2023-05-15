@@ -98,7 +98,7 @@ From here, select the `TAG` for the target kernel version.
 https://github.com/microsoft/WSL2-Linux-Kernel/tags
 
 On WSL2.
-```
+```bash
 $ cd /usr/src
 $ TAGVERNUM=x.x.x.x
 $ TAGVER=linux-msft-wsl-${TAGVERNUM}
