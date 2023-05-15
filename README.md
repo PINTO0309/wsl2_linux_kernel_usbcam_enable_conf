@@ -92,6 +92,27 @@ $ uname -r -v
 5.15.90.1-microsoft-standard-WSL2+ #1 SMP Sun Apr 16 18:14:34 JST 2023
 ```
 ## 3. Note
+### 3-1. WSL Linux kernel configuration changes
+From here, select the `TAG` for the target kernel version.
+https://github.com/microsoft/WSL2-Linux-Kernel/tags
+
+```
+$ cd /usr/src
+$ TAGVERNUM=5.x.x.x
+$ TAGVER=linux-msft-wsl-${TAGVERNUM}
+$ sudo git clone -b ${TAGVER} \
+    https://github.com/microsoft/WSL2-Linux-Kernel.git \
+    ${TAGVERNUM}-microsoft-standard \
+  && cd ${TAGVERNUM}-microsoft-standard
+$ sudo cp /proc/config.gz config.gz \
+  && sudo gunzip config.gz \
+  && sudo mv config .config
+
+$ sudo make menuconfig
+
+# After completing all necessary configurations, "save" will save the modified `.config` file.
+```
+### 3-2. Troubleshooting
 If you receive the following error, please follow the additional steps: USB bandwidth issues may cause the information exchange with the camera to time out.
 - Error Message
 ```
