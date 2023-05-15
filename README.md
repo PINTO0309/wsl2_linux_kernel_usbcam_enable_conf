@@ -62,10 +62,6 @@ $ sudo git clone --depth 1 -b ${TAGVER} \
     ${TAGVERNUM}-microsoft-standard \
   && cd ${TAGVERNUM}-microsoft-standard
 
-$ WSL_DISTRO_NAME=Ubuntu-20.04
-or
-$ WSL_DISTRO_NAME=Ubuntu-22.04
-
 $ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config-${WSL_DISTRO_NAME} \
   && sudo chmod 777 .config \
   && sudo make clean
