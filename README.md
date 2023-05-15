@@ -46,28 +46,33 @@ On WSL2. The **`<windows username>`** part should be replaced with the user name
 5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023
 
 $ sudo apt update && sudo apt upgrade -y
-$ sudo apt install -y build-essential flex bison \
+$ sudo apt install -y \
+    build-essential flex bison \
     libgtk-3-dev libelf-dev libncurses-dev autoconf \
     libudev-dev libtool zip unzip v4l-utils libssl-dev \
     python3-pip cmake git iputils-ping net-tools dwarves \
     guvcview python-is-python3 bc
 
 $ cd /usr/src
-$ TAGVERNUM=5.15.90.1 && \
-    TAGVER=linux-msft-wsl-${TAGVERNUM} && \
-    WINUSERNAME=<windows username>
+$ TAGVERNUM=5.15.90.1 \
+  && TAGVER=linux-msft-wsl-${TAGVERNUM} \
+  && WINUSERNAME=<windows username>
 $ sudo git clone --depth 1 -b ${TAGVER} \
     https://github.com/microsoft/WSL2-Linux-Kernel.git \
-    ${TAGVERNUM}-microsoft-standard && \
-    cd ${TAGVERNUM}-microsoft-standard
+    ${TAGVERNUM}-microsoft-standard \
+  && cd ${TAGVERNUM}-microsoft-standard
 
-$ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config-${WSL_DISTRO_NAME} && \
-sudo chmod 777 .config && \
-sudo make clean
+$ WSL_DISTRO_NAME=Ubuntu-20.04
+or
+$ WSL_DISTRO_NAME=Ubuntu-22.04
 
-$ sudo make -j$(nproc) KCONFIG_CONFIG=.config && \
-    sudo make modules_install -j$(nproc) && \
-    sudo make install -j$(nproc)
+$ sudo wget -O .config https://github.com/PINTO0309/wsl2_linux_kernel_usbcam_enable_conf/raw/main/${TAGVER}/config-${WSL_DISTRO_NAME} \
+  && sudo chmod 777 .config \
+  && sudo make clean
+
+$ sudo make -j$(nproc) KCONFIG_CONFIG=.config \
+  && sudo make modules_install -j$(nproc) \
+  && sudo make install -j$(nproc)
 
 $ sudo rm /mnt/c/Users/${WINUSERNAME}/vmlinux
 $ sudo cp /usr/src/${TAGVERNUM}-microsoft-standard/vmlinux /mnt/c/Users/${WINUSERNAME}/
@@ -101,9 +106,9 @@ Try one or both of the following.
 
 - Try1. Additional command
 ```bash
-$ sudo apt install v4l-utils && \
-sudo chmod 777 /dev/video0 && \
-v4l2-ctl -d /dev/video0 --all
+$ sudo apt install v4l-utils \
+  && sudo chmod 777 /dev/video0 \
+  && v4l2-ctl -d /dev/video0 --all
 
 Driver Info:
 	Driver name      : uvcvideo
@@ -159,9 +164,9 @@ Selection Video Capture: crop_default, Left 0, Top 0, Width 1280, Height 720, Fl
 Selection Video Capture: crop_bounds, Left 0, Top 0, Width 1280, Height 720, Flags: 
 
 
-$ sudo apt install v4l-utils && \
-sudo chmod 777 /dev/video2 && \
-v4l2-ctl -d /dev/video2 --list-formats-ext
+$ sudo apt install v4l-utils \
+  && sudo chmod 777 /dev/video2 \
+  && v4l2-ctl -d /dev/video2 --list-formats-ext
 
 ioctl: VIDIOC_ENUM_FMT
         Type: Video Capture
