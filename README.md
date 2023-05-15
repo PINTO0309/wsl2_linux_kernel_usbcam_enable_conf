@@ -42,7 +42,7 @@ C:\> wsl --install -d Ubuntu-22.04
 
 On WSL2. The **`<windows username>`** part should be replaced with the user name you are logging on to the Windows host PC. There are two corrections.
 ```bash
-~$ uname -r -v
+$ uname -r -v
 5.15.90.1-microsoft-standard-WSL2 #1 SMP Fri Jan 27 02:56:13 UTC 2023
 
 $ sudo apt update && sudo apt upgrade -y
