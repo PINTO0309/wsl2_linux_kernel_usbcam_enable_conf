@@ -98,7 +98,7 @@ https://github.com/microsoft/WSL2-Linux-Kernel/tags
 
 ```
 $ cd /usr/src
-$ TAGVERNUM=5.x.x.x
+$ TAGVERNUM=x.x.x.x
 $ TAGVER=linux-msft-wsl-${TAGVERNUM}
 $ sudo git clone -b ${TAGVER} \
     https://github.com/microsoft/WSL2-Linux-Kernel.git \
